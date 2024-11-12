@@ -35,6 +35,8 @@ public:
         cout
             << "Nhập số tác giả của bài báo: ";
         cin >> count;
+        if (count < 0)
+            throw invalid_argument("Dữ liệu về số lượng tác giả không hợp lệ");
         nv.name = name;
         nv.count = count;
         return is;

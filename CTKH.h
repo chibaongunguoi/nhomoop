@@ -29,11 +29,15 @@ public:
         cin >> id;
         cout << "Ngày xuất bản : " << endl;
         cin >> day;
-        cout << "Khu vực xuất bản (1 - quốc tế, 2 - trong nước): ";
+        if (day.getmonth() < 1900)
+        {
+            throw invalid_argument("Dữ liệu về thời gian không hợp lệ");
+        }
+        cout << "Khu vực xuất bản (1 - quốc tế, 0 - trong nước): ";
         cin >> kv;
         if (kv != 0 && kv != 1)
         {
-            cout << "Dữ liệu không hợp lệ .\n";
+            throw invalid_argument("Dữ liệu về khu vực không hợp lệ");
         }
         nv.id = id;
         nv.ngayxuatban = day;
