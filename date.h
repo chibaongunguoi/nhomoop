@@ -90,11 +90,11 @@ public:
 
     friend istream &operator>>(istream &is, Date &date)
     {
-        cout << "Day: ";
+        cout << "Ngày : ";
         is >> date.day;
-        cout << "Month: ";
+        cout << "Tháng: ";
         is >> date.month;
-        cout << "Year: ";
+        cout << "Năm: ";
         is >> date.year;
         if (check_invalid_date(date.day, date.month, date.year))
         {

@@ -2,43 +2,43 @@
 #define QLNV_H
 
 #include "linkedlist.h"
-#include "nhanvien.h"
+#include "CTKH.h"
 #include <iostream>
 #include <string>
 #include <stdexcept>
 
-class QLNV
+class LLKHCaNhan
 {
 private:
     string name;
-    LinkedList<NhanVien> employees;
+    LinkedList<CongTrinhKhoaHoc> list;
 
 public:
     QLNV(const string &name) : name(name) {}
 
     // Thêm nhân viên
-    void addEmployee(NhanVien *nv)
+    void addEmployee(CongTrinhKhoaHoc *nv)
     {
-        employees.append(nv);
+        list.append(nv);
     }
 
     // Xuất danh sách nhân viên
     void displayEmployees() const
     {
         cout << "Danh sách nhân viên " << ":\n";
-        employees.display();
+        list.display();
     }
 
     // Lấy số lượng nhân viên
     int getEmployeeCount() const
     {
-        return employees.getSize();
+        return list.getSize();
     }
 
     // Truy cập nhân viên theo chỉ số
-    NhanVien *operator[](int index)
+    CongTrinhKhoaHoc *operator[](int index)
     {
-        if (index < 0 || index >= employees.getSize())
+        if (index < 0 || index >= list.getSize())
         {
             throw out_of_range("Danh sách không có chỉ số này");
         }
@@ -58,7 +58,7 @@ public:
     // Xử lý tính lương cho tất cả nhân viên
     void calculateSalaries()
     {
-        for (int i = 0; i < employees.getSize(); i++)
+        for (int i = 0; i < list.getSize(); i++)
         {
             employees[i]->Salary();
         }
@@ -66,13 +66,13 @@ public:
 
     void deleteEmployeeByIndex(int index)
     {
-        if (index < 0 || index >= employees.getSize())
+        if (index < 0 || index >= list.getSize())
         {
             cout << "Không tìm thấy nhân viên có chỉ số trên\n";
             return;
         }
         delete employees[index];
-        employees.removeAt(index);
+        list.removeAt(index);
         cout << "Nhân viên có chỉ số " << index << " đã bị xóa thành công.\n";
     }
 };
