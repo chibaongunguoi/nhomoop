@@ -20,7 +20,7 @@ public:
         this->ngayxuatban = day;
         this->khuvuc = kv;
     };
-    friend istream &operator>>(istream &is, CongTrinhKhoaHoc &date)
+    friend istream &operator>>(istream &is, CongTrinhKhoaHoc &nv)
     {
         string id;
         Date day;
@@ -35,6 +35,9 @@ public:
         {
             cout << "Dữ liệu không hợp lệ .\n";
         }
+        nv.id = id;
+        nv.ngayxuatban = day;
+        nv.khuvuc = kv;
         return is;
     }
     virtual void display()
