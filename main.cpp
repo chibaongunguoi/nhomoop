@@ -36,6 +36,7 @@ int main()
             cout << "Vui lòng nhập đúng số ứng với chức năng cần dùng" << endl;
             continue;
         }
+        cout << endl;
         switch (choice)
         {
         case 1:

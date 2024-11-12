@@ -58,8 +58,10 @@ public:
     {
         cout << "Nhập trường bạn muốn sửa (0-Mã công trình, 1-Ngày xuất bản, 2-Khu vực,3-Tên công trình ,4-Số tác giả) " << endl;
         int i;
+        cin >> i;
         if (i >= 0 && i <= 4)
-            cout << "Bạn muốn sửa thông tin của trường này thành :";
+            cout
+                << "Bạn muốn sửa thông tin của trường này thành :";
         else
         {
             return;
