@@ -65,6 +65,8 @@
     "istream": "cpp",
     "iomanip": "cpp",
     "iterator": "cpp",
-    "xmemory": "cpp"
+    "xmemory": "cpp",
+    "system_error": "cpp",
+    "xlocale": "cpp"
   }
 }

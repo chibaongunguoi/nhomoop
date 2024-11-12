@@ -13,8 +13,9 @@ void showMenu()
     cout << "1. Thêm bài báo hoặc sách\n";
     cout << "2. Hiển thị số lượng và danh sách công trình khoa học  \n";
     cout << "3. Truy cập thông tin công trình khoa học bằng chỉ số\n";
-    cout << "4. Loại bỏ 1 công trình khoa học bằng chỉ số\n";
-    cout << "5. Thoát chương trình\n";
+    cout << "4. Chỉnh sửa thông tin công trình khoa học bằng chỉ số\n";
+    cout << "5. Loại bỏ 1 công trình khoa học bằng chỉ số\n";
+    cout << "6. Thoát chương trình\n";
     cout << "Nhập lựa chọn : ";
 }
 
@@ -90,6 +91,24 @@ int main()
         case 4:
         {
             int index;
+            cout << "Nhập chỉ số: ";
+            cin >> index;
+            try
+            {
+                CongTrinhKhoaHoc *em = LLKHCaNhan[index];
+                cout << "Thông tin công trình khoa học có chỉ số " << index << ":\n";
+                em->display();
+                em->set();
+            }
+            catch (const std::out_of_range &e)
+            {
+                cout << "Error: " << e.what() << endl;
+            }
+            break;
+        }
+        case 5:
+        {
+            int index;
             cout << "Nhập chỉ số của công trình khoa học bạn muốn xóa: ";
             cin >> index;
             try
@@ -103,7 +122,7 @@ int main()
             }
             break;
         }
-        case 5:
+        case 6:
         {
             running = false;
 

@@ -24,7 +24,7 @@ public:
         this->month = month;
         this->year = year;
     }
-    int getmonth() { return month; };
+    int getyear() { return year; };
     Date(const Date &date)
     {
         this->day = date.day;

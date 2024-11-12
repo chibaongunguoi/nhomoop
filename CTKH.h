@@ -20,6 +20,27 @@ public:
         this->ngayxuatban = day;
         this->khuvuc = kv;
     };
+    void setid(string id)
+    {
+        this->id = id;
+    }
+    void setngayxuatban(Date day)
+    {
+        if (day.getyear() < 1900)
+        {
+            throw invalid_argument("Dữ liệu về thời gian không hợp lệ");
+        }
+        this->ngayxuatban = day;
+    }
+    void setkhuvuc(bool kv)
+    {
+
+        if (kv != 0 && kv != 1)
+        {
+            throw invalid_argument("Dữ liệu về khu vực không hợp lệ");
+        }
+        this->khuvuc = kv;
+    }
     friend istream &operator>>(istream &is, CongTrinhKhoaHoc &nv)
     {
         string id;
@@ -29,7 +50,7 @@ public:
         cin >> id;
         cout << "Ngày xuất bản : " << endl;
         cin >> day;
-        if (day.getmonth() < 1900)
+        if (day.getyear() < 1900)
         {
             throw invalid_argument("Dữ liệu về thời gian không hợp lệ");
         }
@@ -50,6 +71,6 @@ public:
         cout << "Ngày xuất bản: " << ngayxuatban << endl;
         cout << "Khu vực xuất bản: " << (khuvuc ? "Quốc tế" : "Trong nước") << endl;
     }
-    virtual void Salary() {};
+    virtual void set() {};
 };
 #endif
